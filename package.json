@@ -18,7 +18,7 @@
     "url": "git+https://github.com/discue/paddle-webhook-validator.git"
   },
   "author": "Stefan Pfaffel",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/discue/paddle-webhook-validator/issues"
   },
