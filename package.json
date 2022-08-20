@@ -1,0 +1,34 @@
+{
+  "name": "@discue/paddle-hook-validator",
+  "version": "1.0.0",
+  "description": "Middleware for validation of paddle payment hooks",
+  "main": "lib/index",
+  "scripts": {
+    "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 50000",
+    "lint": "eslint -c .eslintrc.json lib",
+    "release": "npm run build && standard-version && git push --follow-tags origin && npm publish",
+    "release-minor": "npm run build && standard-version --release-as minor && git push --follow-tags origin && npm publish",
+    "paddle-webhook-tunnel": "lt --port 3456 --subdomain ii533vj7h9qipggbkbze"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdiscue/paddle-hook-validator.git"
+  },
+  "author": "Stefan Pfaffel",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/sdiscue/paddle-hook-validator/issues"
+  },
+  "homepage": "https://github.com/sdiscue/paddle-hook-validator#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "eslint": "^8.22.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "php-serialize": "^4.0.2",
+    "standard-version": "^9.5.0"
+  }
+}
