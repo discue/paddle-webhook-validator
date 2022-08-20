@@ -1,6 +1,6 @@
 {
   "name": "@discue/paddle-webhook-validator",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Middleware for validation of paddle payment hooks",
   "main": "lib/index",
   "scripts": {
