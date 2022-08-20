@@ -3,6 +3,9 @@
   "version": "0.1.1",
   "description": "Middleware for validation of paddle payment hooks",
   "main": "lib/index",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 50000",
     "lint": "eslint -c .eslintrc.json lib",
