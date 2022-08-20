@@ -1,6 +1,6 @@
 'use strict'
 
-const validator = require('../../../lib/services/schema-validator')
+const validator = require('../../../lib/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
 
 const { expect } = require('chai')
 
@@ -306,9 +306,9 @@ describe('PaymentSucceededValidator', () => {
         }, false)
     })
     
-    it('returns true if receipt_url uses http and host ends with yoga', () => {
+    it('returns true if receipt_url uses http and host ends with sandbox-my.paddle.com', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { receipt_url: 'http://yoga:3000' })
+            return Object.assign(data, { receipt_url: 'http://sandbox-my.paddle.com:3000' })
         }, true)
     })
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const verify = require('../../../lib/services/verify-signature')
+const verify = require('../../../lib/services/verify-signature')('./test/fixtures/pk.txt')
 
 const { expect } = require('chai')
 
