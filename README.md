@@ -45,6 +45,12 @@ router.use((req,res) => {
 export default router
 ```
 
+### Parameters
+- `publicKeyText`: The public key that will be used to [verify the signature](https://developer.paddle.com/webhook-reference/ZG9jOjI1MzUzOTg2-verifying-webhooks) of a webhook. You can find this public key in your Paddle Dashboard under Developer Tools > Public Key. The library expects a PEM encoded string.
+- `publicKeyFilePath`: The public key file that will be read and used to [verify the signature](https://developer.paddle.com/webhook-reference/ZG9jOjI1MzUzOTg2-verifying-webhooks) of a webhook. You can find this public key in your Paddle Dashboard under Developer Tools > Public Key. The library expects a PEM encoded string.
+- `allowedHttpHosts`: limits domains that can be used in urls like cancel_url. Most likely you can stick with the default, which is `paddle.com`. To ensure that communication is always encrypted you can also provide an empty array here.
+- `allowedHttpHosts`: limits domains that can be used in urls like cancel_url. Most likely you can stick with the default, which is `paddle.com`.
+
 ## Run Tests
 
 To run tests, run the following command
