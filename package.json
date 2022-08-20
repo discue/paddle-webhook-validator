@@ -1,5 +1,7 @@
 {
   "name": "@discue/paddle-webhook-validator",
+  "author": "Stefan Pfaffel",
+  "license": "MIT",
   "version": "0.1.1",
   "description": "Middleware for validation of paddle payment hooks",
   "main": "lib/index",
@@ -17,8 +19,6 @@
     "type": "git",
     "url": "git+https://github.com/discue/paddle-webhook-validator.git"
   },
-  "author": "Stefan Pfaffel",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/discue/paddle-webhook-validator/issues"
   },
