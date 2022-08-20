@@ -1,16 +1,32 @@
 
-<p align="center"><a href="https://www.discue.io/" target="_blank" rel="noopener noreferrer"><img width="128" src="https://www.discue.io/icons-fire-no-badge-square/web/icon-192.png" alt="Vue logo"></a></p>
+<p align="center">
+<a href="https://www.discue.io/" target="_blank" rel="noopener noreferrer"><img width="128" src="https://www.discue.io/icons-fire-no-badge-square/web/icon-192.png" alt="Vue logo">
+</a>
+</p>
+
+<br/>
+<div align="center">
+
+[![GitHub tag](https://img.shields.io/github/tag/discue/paddle-webhook-validator?include_prereleases=&sort=semver&color=blue)](https://github.com/discue/paddle-webhook-validator/releases/)
+[![Latest Stable Version](https://img.shields.io/npm/v/@discue/paddle-webhook-validator.svg)](https://www.npmjs.com/package/@discue/paddle-webhook-validator)
+[![License](https://img.shields.io/npm/l/@discue/paddle-webhook-validator.svg)](https://www.npmjs.com/package/@discue/paddle-webhook-validator)
+<br/>
+[![NPM Downloads](https://img.shields.io/npm/dt/@discue/paddle-webhook-validator.svg)](https://www.npmjs.com/package/@discue/paddle-webhook-validator)
+[![NPM Downloads](https://img.shields.io/npm/dm/@discue/paddle-webhook-validator.svg)](https://www.npmjs.com/package/@discue/paddle-webhook-validator)
+<br/>
+[![contributions - welcome](https://img.shields.io/badge/contributions-welcome-blue)](/CONTRIBUTING.md "Go to contributions doc")
+[![Made with Node.js](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node.js homepage")
+
+</div>
 
 # paddle-webhook-validator
+
 
 A collection of vue.js components used in discue.io.
 
 ## Installation
-
-Install with npm
-
 ```bash
-  npm install @discue/paddle-webhook-validator
+npm install @discue/paddle-webhook-validator
 ```
 
 ## Usage
