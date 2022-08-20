@@ -2,7 +2,7 @@
   "name": "@discue/paddle-webhook-validator",
   "author": "Stefan Pfaffel",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Middleware for validation of paddle payment hooks",
   "main": "lib/index",
   "files": [
