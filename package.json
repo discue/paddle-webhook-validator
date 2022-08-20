@@ -1,5 +1,5 @@
 {
-  "name": "@discue/paddle-hook-validator",
+  "name": "@discue/paddle-webhook-validator",
   "version": "1.0.0",
   "description": "Middleware for validation of paddle payment hooks",
   "main": "lib/index",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sdiscue/paddle-hook-validator.git"
+    "url": "git+https://github.com/discue/paddle-webhook-validator.git"
   },
   "author": "Stefan Pfaffel",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/sdiscue/paddle-hook-validator/issues"
+    "url": "https://github.com/discue/paddle-webhook-validator/issues"
   },
-  "homepage": "https://github.com/sdiscue/paddle-hook-validator#readme",
+  "homepage": "https://github.com/discue/paddle-webhook-validator#readme",
   "devDependencies": {
     "chai": "^4.3.6",
     "eslint": "^8.22.0",
