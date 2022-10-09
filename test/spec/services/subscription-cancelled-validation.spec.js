@@ -52,6 +52,12 @@ describe('SubscriptionCancelledValidator', () => {
         }, false)
     })
 
+    it('returns true if cancellation_effective_date contains aa time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { alert_id: '2021-09-04 03:04:05' })
+        }, false)
+    })
+
     it('returns false if checkout_id is not a string', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { checkout_id: [] })

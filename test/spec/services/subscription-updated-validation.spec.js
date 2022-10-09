@@ -161,6 +161,12 @@ describe('SubscriptionUpdatedValidator', () => {
         }, false)
     })
 
+    it('returns true if next_bill_date contains a time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_bill_date: '2022-02-03 02-03-04' })
+        }, false)
+    })
+
     it('returns false if old_price is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { old_price: 'a9' })
@@ -283,6 +289,12 @@ describe('SubscriptionUpdatedValidator', () => {
     it('returns false if old_next_bill_date does not match pattern', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { old_next_bill_date: 'a9' })
+        }, false)
+    })
+
+    it('returns false if old_next_bill_date contains a time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { old_next_bill_date: '2022-02-03 02-03-04' })
         }, false)
     })
 

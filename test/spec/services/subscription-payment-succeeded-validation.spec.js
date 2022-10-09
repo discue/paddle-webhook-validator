@@ -1,6 +1,6 @@
 'use strict'
 
-const validator = require('../../../lib/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
+const validator = require('../../../lib/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'])
 
 const { expect } = require('chai')
 
@@ -214,6 +214,12 @@ describe('PaymentSucceededValidator', () => {
         }, false)
     })
 
+    it('returns true if next_bill_date contains a time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_bill_date: '2022-02-03 02-03-04' })
+        }, false)
+    })
+
     it('returns false if next_payment_amount does not match pattern', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { next_payment_amount: '1.234' })
@@ -254,7 +260,7 @@ describe('PaymentSucceededValidator', () => {
             return Object.assign(data, { payment_method: ['Western Union'] })
         }, false)
     })
-    
+
     const paymentMethods = ['card', 'paypal']
 
     paymentMethods.forEach((payment_method) => {
@@ -293,19 +299,19 @@ describe('PaymentSucceededValidator', () => {
             return Object.assign(data, { receipt_url: 'https://checkout.paddle.com' })
         }, true)
     })
-    
+
     it('returns false if receipt_url uses http and host ends with paddle.com', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { receipt_url: 'http://checkout.paddle.com' })
         }, false)
     })
-    
+
     it('returns false if receipt_url uses https and host ends with facebook.com', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { receipt_url: 'https://facebook.com' })
         }, false)
     })
-    
+
     it('returns true if receipt_url uses http and host ends with sandbox-my.paddle.com', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { receipt_url: 'http://sandbox-my.paddle.com:3000' })
@@ -340,7 +346,7 @@ describe('PaymentSucceededValidator', () => {
         })
     })
 
-    
+
     it('returns false if subscription_id is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { subscription_id: 'a9' })
@@ -364,7 +370,7 @@ describe('PaymentSucceededValidator', () => {
             return Object.assign(data, { unit_price: '1.234' })
         }, false)
     })
-    
+
     it('returns false if user_id is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { user_id: 'a9' })

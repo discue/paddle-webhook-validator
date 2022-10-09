@@ -130,6 +130,12 @@ describe('SubscriptionCreatedValidator', () => {
         }, false)
     })
 
+    it('returns true if next_bill_date contains a time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_bill_date: '2022-02-04 02-03-04' })
+        }, false)
+    })
+
     it('returns false if passthrough is longer than expected', () => {
         let s = ''
         for (let i = 0, n = 1001; i <= n; i++) {
