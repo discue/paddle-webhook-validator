@@ -1,6 +1,6 @@
 'use strict'
 
-const validator = require('../../../lib/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
+const validator = require('../../../lib/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'])
 
 const { expect } = require('chai')
 
@@ -41,6 +41,16 @@ describe('SubscriptionCreatedValidator', () => {
 
     it('returns true if payload is valid', () => {
         UPDATE_AND_EXPECT(data => data, true)
+    })
+
+    it('deletes unknown keys', () => {
+        let payload
+        UPDATE_AND_EXPECT((data) => {
+            payload = Object.assign(data, { unknown: 'a9' })
+            return payload
+        }, true)
+
+        expect(payload.unknown).to.be.undefined
     })
 
     it('returns false if alert_id contains not only digits', () => {

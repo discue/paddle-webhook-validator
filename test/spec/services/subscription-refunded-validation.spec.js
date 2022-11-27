@@ -54,4 +54,13 @@ describe('PaymentSucceededValidator', () => {
         UPDATE_AND_EXPECT(data => data, true)
     })
 
+    it('deletes unknown keys', () => {
+        let payload
+        UPDATE_AND_EXPECT((data) => {
+            payload = Object.assign(data, { unknown: 'a9' })
+            return payload
+        }, true)
+
+        expect(payload.unknown).to.be.undefined
+    })
 })
