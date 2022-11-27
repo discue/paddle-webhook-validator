@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/discue/paddle-webhook-validator/compare/v1.1.0...v1.2.0) (2022-11-27)
+
+
+### Features
+
+* allow all date to optionally contain time ([e4c4762](https://github.com/discue/paddle-webhook-validator/commit/e4c4762dd9b26660d0b3995f8bfeb989c0c01216))
+* also validate custom_data properties ([8fc9944](https://github.com/discue/paddle-webhook-validator/commit/8fc9944ec710818edc496f29fbf07e468ad8e151))
+* use less loops for validation ([0f6a0f0](https://github.com/discue/paddle-webhook-validator/commit/0f6a0f085ab11ef57bac859c851f9266c749917f))
+
+
+### Chores
+
+* **deps-dev:** update dependencies ([1228964](https://github.com/discue/paddle-webhook-validator/commit/122896421342b6ba9dbb79fe2ffd883832ad4843))
+* update readme ([28136af](https://github.com/discue/paddle-webhook-validator/commit/28136af6855ee1ee91127fbc0d359353429cc5ff))
+
 ## [1.1.0](https://github.com/discue/paddle-webhook-validator/compare/v1.0.0...v1.1.0) (2022-10-09)
 
 
