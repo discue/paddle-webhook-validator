@@ -53,6 +53,16 @@ describe('SubscriptionCreatedValidator', () => {
         expect(payload.unknown).to.be.undefined
     })
 
+    it('does not delete custom_data', () => {
+        let payload
+        UPDATE_AND_EXPECT((data) => {
+            payload = Object.assign(data, { custom_data: 'a9' })
+            return payload
+        }, true)
+
+        expect(payload.custom_data).to.equal('a9')
+    })
+
     it('returns false if alert_id contains not only digits', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { alert_id: 'a9' })
