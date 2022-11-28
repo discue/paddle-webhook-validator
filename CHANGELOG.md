@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/discue/paddle-webhook-validator/compare/v1.3.0...v1.4.0) (2022-11-28)
+
+
+### Features
+
+* log validation errors ([03a4340](https://github.com/discue/paddle-webhook-validator/commit/03a434082860a8d2043b38fe5420a2a78be67559))
+* log verification and validation errors ([245dc1b](https://github.com/discue/paddle-webhook-validator/commit/245dc1bd8da94ceec93c083cc01ee09e54a313a1))
+
+
+### Chores
+
+* add simple log format ([cffffd4](https://github.com/discue/paddle-webhook-validator/commit/cffffd4c2e770b2113b3b5b8189a71057eaf53a3))
+* update logging for failed URI validation ([28db505](https://github.com/discue/paddle-webhook-validator/commit/28db505d9ad6a9279c72114507f30869f76177ca))
+
 ## [1.3.0](https://github.com/discue/paddle-webhook-validator/compare/v1.2.0...v1.3.0) (2022-11-27)
 
 
