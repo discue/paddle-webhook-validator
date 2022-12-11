@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/discue/paddle-webhook-validator/compare/v1.4.0...v1.5.0) (2022-12-11)
+
+
+### Chores
+
+* update module name in log messages ([d7ad0bb](https://github.com/discue/paddle-webhook-validator/commit/d7ad0bb86f5902e53660d61544905649adf2939c))
+
 ## [1.4.0](https://github.com/discue/paddle-webhook-validator/compare/v1.3.0...v1.4.0) (2022-11-28)
 
 
