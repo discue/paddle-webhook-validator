@@ -39,6 +39,6 @@
     "standard-version": "^9.5.0"
   },
   "dependencies": {
-    "php-serialize": "^4.0.2"
+    "php-serialize": "^4.1.0"
   }
 }
