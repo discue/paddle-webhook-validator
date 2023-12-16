@@ -1,10 +1,10 @@
 'use strict'
 
-const validator = require('../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
+const validator = require('../../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
 
 const { expect } = require('chai')
 
-describe('SubscriptionCancelledValidator', () => {
+describe('PaymentFailedValidator', () => {
 
     let data
 
@@ -16,23 +16,29 @@ describe('SubscriptionCancelledValidator', () => {
 
     beforeEach(() => {
         data = {
-            alert_id: '439273720',
-            alert_name: 'subscription_cancelled',
-            cancellation_effective_date: '2021-09-04',
-            checkout_id: '3-21a8f3aba7b822b-5e53440387',
+            alert_id: '46382912',
+            alert_name: 'subscription_payment_failed',
+            amount: '808.38',
+            attempt_number: '1',
+            cancel_url: 'https://sandbox-checkout.paddle.com/subscription/cancel?user=5&subscription=2&hash=4f4b75c6a3e37ea827e97bbf95b83ac46d9d4fb8',
+            checkout_id: '7-128e3df04159120-b316bfe6b7',
             currency: 'EUR',
-            email: 'jocelyn.goodwin@example.org',
-            event_time: '2021-08-08 09:47:33',
-            linked_subscriptions: '3, 5, 9',
+            email: 'ritchie.vito@example.com',
+            event_time: '2021-08-08 11:49:59',
+            instalments: '9',
             marketing_consent: '0',
+            next_retry_date: '2021-08-21',
+            order_id: '7',
             passthrough: 'Example String',
-            quantity: '86',
-            status: 'deleted',
-            subscription_id: '4',
-            subscription_plan_id: '8',
-            unit_price: '3.25',
+            quantity: '58',
+            status: 'active',
+            subscription_id: '1',
+            subscription_payment_id: '4',
+            subscription_plan_id: '6',
+            unit_price: '3.15',
+            update_url: 'https://sandbox-checkout.paddle.com/subscription/update?user=5&subscription=5&hash=de02f4fe97e1ea310310215e7991614b438ed755',
             user_id: '9',
-            p_signature: 'wFOagDjx9PbqhlavLMWYLJ1RHqSyAuepiZDJfGHAJ4Y/P8oioqSRGPk68SsCUyTXc9qPmD5TZMDqAhcmEtw2br0kJuNj55nkBug7P7TIv0sZJQluHGmyuWEoXIMR+ztbOPLZ3NGv4v3n7LyhmxY+9CrLU4YsEHoNOQ2lBoTC42rxqY8JRGrXlETn9AEjsLqsWkvL+C+022EQOp3sRVOm6NH8RGBiA4GMHTIZQN7O4zVOkN4f4hRaEsUZHjMhbMKVr3wKxfPmJrsS+BcsBQRbpEPNutAhzlthy2GR7wDmqXfXrLeiFibL8a9NVxm6MMVE5cgnctczsc/DQlVAS21VpYq2xdqrHkbF6Nq0mgAczLEu4N5ARB0m8Uk8mEWhalTW700mS+sJ3BUsI5xZGxXNRBnpwuvC+7wViaJYQfdttImAROtQJYyBA07U4qPUS2AY62Zr4MagCMz//tLa97M6RlY9/Weg1pcTzINrJ2BJ8WXVk1hYbYc7uODs5Ck9TxUpECRwVY3y4bs9dfoNKykLpY3KjmsIogHJsHH0+LkaWBMcEW+cYZ3/vqfHmqWZbeNxnkNkkH/TOD6+tLJOhCdzORZOrsavixkEgEQrhPYS/PHrti75JNucDLW+Z8r7R2lYMcICdpxH+nyKdmLogUGyMFXzoI8FU3WnrDQA7+32X5A='
+            p_signature: 'R28+OKAteLAZ9cySdcLrPFlgpuMOLpJaXyJedOch4sMDIDXfYqgdhhSjdeINCfHZF/wOTp1WySIHsQOJYKpSwoehfLT080S77o0shA8FFzqiRMfUHcXcm3l7cbzEjpuUOxvjIUn6JZYO5YMERIihfUpzIZu8TB6voLKcxL+xCNtvqPI8jOJxK8QBfSzNG5cNr+LKn5IMVXMXBPNrW00i7JdHdEOTJoQJQx5jzwftlFHNDZ6AiTxAwJjSx3TOt1n2XkRTcDnBhP5EFxIWlyWTZp7Vh3Ry/35ijoEfycbJWfk1MfORlM1hat6dszKws1PRwO2kiVeJgscNKfS+9i9B6vKloVLF2wK/FVWolCnSU45ZD+CBzsy4l4I1RfsTj36vDzdH+jtFO9chOLY24P9y1igma621IX8mAi9BoDkkt+OWC6wJlet6nQIQMy9sb4oOWH2hRyx8t5i7gWKNUELkClAjDbB8UL1mMntEN9926D7il8/CEmzv3d+HfKiO1jdHKAn4TVbrrgDcvEyDodyQ74RKIvixZMHn+A5VXwOn6jqRExZ1huJt2ew48KontPSajzc1iWR+T0oNf5pANMqMSeT30gM7ui8VELfXkwAcNBJAQMjZ7aGdgHl9+H3Se9Zz2jnQonn2bHn6wSMzqa2RZDhgyyFnab1WdMqAi4f16iM='
         }
     })
 
@@ -66,16 +72,34 @@ describe('SubscriptionCancelledValidator', () => {
         }, false)
     })
 
-    it('returns false if cancellation_effective_date does not match pattern', () => {
+    it('returns false if amount does not match pattern', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { alert_id: '2021-09-04' })
+            return Object.assign(data, { amount: '1.234' })
         }, false)
     })
 
-    it('returns true if cancellation_effective_date contains aa time', () => {
+    it('returns true if cancel_url uses https and host ends with paddle.com', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { alert_id: '2021-09-04 03:04:05' })
+            return Object.assign(data, { cancel_url: 'https://checkout.paddle.com' })
+        }, true)
+    })
+
+    it('returns false if cancel_url uses http and host ends with paddle.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { cancel_url: 'http://checkout.paddle.com' })
         }, false)
+    })
+
+    it('returns false if cancel_url uses https and host ends with facebook.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { cancel_url: 'https://facebook.com' })
+        }, false)
+    })
+
+    it('returns true if cancel_url uses http and host ends with sandbox-my.paddle.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { cancel_url: 'http://sandbox-my.paddle.com:3000' })
+        }, true)
     })
 
     it('returns false if checkout_id is not a string', () => {
@@ -83,7 +107,6 @@ describe('SubscriptionCancelledValidator', () => {
             return Object.assign(data, { checkout_id: [] })
         }, false)
     })
-
 
     it('returns false if checkout_id is longer than 200 characters', () => {
         let s = ''
@@ -128,6 +151,18 @@ describe('SubscriptionCancelledValidator', () => {
                 return Object.assign(data, { marketing_consent })
             }, true)
         })
+    })
+
+    it('returns false if next_retry_date does not match pattern', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_retry_date: 'a9' })
+        }, false)
+    })
+
+    it('returns true if retry_date contains a time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_retry_date: '2022-01-02 02-03-04' })
+        }, false)
     })
 
     it('returns false if passthrough is longer than expected', () => {
@@ -199,9 +234,57 @@ describe('SubscriptionCancelledValidator', () => {
         }, false)
     })
 
+    it('returns true if update_url uses https and host ends with paddle.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { update_url: 'https://checkout.paddle.com' })
+        }, true)
+    })
+
+    it('returns false if update_url uses http and host ends with paddle.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { update_url: 'http://checkout.paddle.com' })
+        }, false)
+    })
+
+    it('returns false if update_url uses https and host ends with facebook.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { update_url: 'https://facebook.com' })
+        }, false)
+    })
+
+    it('returns true if update_url uses http and host ends with sandbox-my.paddle.com', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { update_url: 'http://sandbox-my.paddle.com:3000' })
+        }, true)
+    })
+
+    it('returns false if subscription_payment_id is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { subscription_payment_id: 'a9' })
+        }, false)
+    })
+
+    it('returns false if instalments not a number', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { instalments: 'a9' })
+        }, false)
+    })
+
+    it('returns false if order_id does not match pattern', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { order_id: '1.234' })
+        }, false)
+    })
+
     it('returns false if user_id is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { user_id: 'a9' })
+        }, false)
+    })
+
+    it('returns false if attempt_number is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { attempt_number: 'a9' })
         }, false)
     })
 

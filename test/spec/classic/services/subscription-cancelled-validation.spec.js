@@ -1,10 +1,10 @@
 'use strict'
 
-const validator = require('../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'])
+const validator = require('../../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
 
 const { expect } = require('chai')
 
-describe('SubscriptionCreatedValidator', () => {
+describe('SubscriptionCancelledValidator', () => {
 
     let data
 
@@ -16,26 +16,23 @@ describe('SubscriptionCreatedValidator', () => {
 
     beforeEach(() => {
         data = {
-            alert_id: '2014203184',
-            alert_name: 'subscription_created',
-            cancel_url: 'https://sandbox-my.paddle.com/subscription/cancel?user=9&subscription=5&hash=13f3e703caa74b5dd758faf3a24b415fd32e245d',
-            checkout_id: '3-d557ce34ede543e-9ac21077b0',
-            currency: 'USD',
-            email: 'leffler.zola@example.org',
-            event_time: '2021-08-08 07:46:58',
-            linked_subscriptions: '3, 1, 2',
-            marketing_consent: '',
-            next_bill_date: '2021-08-29',
+            alert_id: '439273720',
+            alert_name: 'subscription_cancelled',
+            cancellation_effective_date: '2021-09-04',
+            checkout_id: '3-21a8f3aba7b822b-5e53440387',
+            currency: 'EUR',
+            email: 'jocelyn.goodwin@example.org',
+            event_time: '2021-08-08 09:47:33',
+            linked_subscriptions: '3, 5, 9',
+            marketing_consent: '0',
             passthrough: 'Example String',
-            quantity: '17',
-            source: 'Trial',
-            status: 'active',
-            subscription_id: '8',
-            subscription_plan_id: '9',
+            quantity: '86',
+            status: 'deleted',
+            subscription_id: '4',
+            subscription_plan_id: '8',
             unit_price: '3.25',
-            update_url: 'https://sandbox-my.paddle.com/subscription/update?user=1&subscription=6&hash=7d49e417e9492ad53a3fd17bc97f63927c2c0973',
             user_id: '9',
-            p_signature: 'bHmaeUYMbvmsNnzOCXsecnz0mqshAtNJLT1rmxQ7vwYCg8zG/HinjTxrdfttEBqEy7GX9MC/QGpi96azJYG6+iml1Ic/KNOCWk/7Omw14V4buuYtXwo/jh8U8PKnT5RQgxOHBIupiAWd95ulTIxD1SgXz5gFnlbCAj5iiqDKin3d9KYjnCHfUNkF0SGYdIOw4nAOC2cgt1hnBMnZlYkguDIpNpjQtYbKakxJWm/9Ix9czg3c3IuIAPMxxi6PDXFbfSBv0Gx0iiwbrYOY4mb/NLwVIVqwZjcXd7YrwZGXGwTY94u+B4PhI5BumLPWDK0eGrWx9gB8vQhrYkpl1myIbm3dafljAr9tIHsIaHRjpVTpoCLPfSUlNz95YAKNMON+Vfw1cqrdIRhIPC4fWudVKYH2YT4Lo36qZgOPxDiTv4KwQ+ItP2vIEe7x82gte/A73wQ0O7Z/XkC64k7Ya8uScdlTUhei3gI4q6Ikt86x4yHcXktKG2x3JiEzwQ8j9rUJ7S7zCsuqsiH9bUiOSFlklFB1xC36iRtmJaO4uCa2IeJBuLdzgYFGeGtrN00I24FLc6XfMZSDOG04JVwrBDLSrn1W4Oefw5OH1B/NM87wu44byO3tCHtIvnuB/GjnzbMYA1SY3Er4zWdLrjwUa8BXSousvnuqKF8/cLOXAo9LBs8='
+            p_signature: 'wFOagDjx9PbqhlavLMWYLJ1RHqSyAuepiZDJfGHAJ4Y/P8oioqSRGPk68SsCUyTXc9qPmD5TZMDqAhcmEtw2br0kJuNj55nkBug7P7TIv0sZJQluHGmyuWEoXIMR+ztbOPLZ3NGv4v3n7LyhmxY+9CrLU4YsEHoNOQ2lBoTC42rxqY8JRGrXlETn9AEjsLqsWkvL+C+022EQOp3sRVOm6NH8RGBiA4GMHTIZQN7O4zVOkN4f4hRaEsUZHjMhbMKVr3wKxfPmJrsS+BcsBQRbpEPNutAhzlthy2GR7wDmqXfXrLeiFibL8a9NVxm6MMVE5cgnctczsc/DQlVAS21VpYq2xdqrHkbF6Nq0mgAczLEu4N5ARB0m8Uk8mEWhalTW700mS+sJ3BUsI5xZGxXNRBnpwuvC+7wViaJYQfdttImAROtQJYyBA07U4qPUS2AY62Zr4MagCMz//tLa97M6RlY9/Weg1pcTzINrJ2BJ8WXVk1hYbYc7uODs5Ck9TxUpECRwVY3y4bs9dfoNKykLpY3KjmsIogHJsHH0+LkaWBMcEW+cYZ3/vqfHmqWZbeNxnkNkkH/TOD6+tLJOhCdzORZOrsavixkEgEQrhPYS/PHrti75JNucDLW+Z8r7R2lYMcICdpxH+nyKdmLogUGyMFXzoI8FU3WnrDQA7+32X5A='
         }
     })
 
@@ -69,28 +66,16 @@ describe('SubscriptionCreatedValidator', () => {
         }, false)
     })
 
-    it('returns true if cancel_url uses https and host ends with paddle.com', () => {
+    it('returns false if cancellation_effective_date does not match pattern', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { cancel_url: 'https://checkout.paddle.com' })
-        }, true)
-    })
-
-    it('returns false if cancel_url uses http and host ends with paddle.com', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { cancel_url: 'http://checkout.paddle.com' })
+            return Object.assign(data, { alert_id: '2021-09-04' })
         }, false)
     })
 
-    it('returns false if cancel_url uses https and host ends with facebook.com', () => {
+    it('returns true if cancellation_effective_date contains aa time', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { cancel_url: 'https://facebook.com' })
+            return Object.assign(data, { alert_id: '2021-09-04 03:04:05' })
         }, false)
-    })
-
-    it('returns true if cancel_url uses http and host ends with sandbox-my.paddle.com', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { cancel_url: 'https://sandbox-my.paddle.com' })
-        }, true)
     })
 
     it('returns false if checkout_id is not a string', () => {
@@ -98,6 +83,7 @@ describe('SubscriptionCreatedValidator', () => {
             return Object.assign(data, { checkout_id: [] })
         }, false)
     })
+
 
     it('returns false if checkout_id is longer than 200 characters', () => {
         let s = ''
@@ -144,18 +130,6 @@ describe('SubscriptionCreatedValidator', () => {
         })
     })
 
-    it('returns false if next_bill_date does not match pattern', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { next_bill_date: 'a9' })
-        }, false)
-    })
-
-    it('returns true if next_bill_date contains a time', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { next_bill_date: '2022-02-04 02-03-04' })
-        }, false)
-    })
-
     it('returns false if passthrough is longer than expected', () => {
         let s = ''
         for (let i = 0, n = 1001; i <= n; i++) {
@@ -176,23 +150,6 @@ describe('SubscriptionCreatedValidator', () => {
     it('returns false if quantity is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { quantity: 'a9' })
-        }, false)
-    })
-
-    it('returns false if source is not a string', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { source: [] })
-        }, false)
-    })
-
-    it('returns false if source is longer than 200 characters', () => {
-        let s = ''
-        for (let i = 0, n = 201; i <= n; i++) {
-            s += '1'
-        }
-
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { source: s })
         }, false)
     })
 
@@ -246,30 +203,6 @@ describe('SubscriptionCreatedValidator', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { user_id: 'a9' })
         }, false)
-    })
-
-    it('returns true if update_url uses https and host ends with paddle.com', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { update_url: 'https://checkout.paddle.com' })
-        }, true)
-    })
-
-    it('returns false if update_url uses http and host ends with paddle.com', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { update_url: 'http://checkout.paddle.com' })
-        }, false)
-    })
-
-    it('returns false if update_url uses https and host ends with facebook.com', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { update_url: 'https://facebook.com' })
-        }, false)
-    })
-
-    it('returns true if update_url uses http and host ends with sandbox-my.paddle.com', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { update_url: 'http://sandbox-my.paddle.com:3000' })
-        }, true)
     })
 
     it('returns false if p_signature is longer than 2000 characters', () => {

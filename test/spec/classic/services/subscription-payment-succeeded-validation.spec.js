@@ -1,6 +1,6 @@
 'use strict'
 
-const validator = require('../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'])
+const validator = require('../../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'])
 
 const { expect } = require('chai')
 

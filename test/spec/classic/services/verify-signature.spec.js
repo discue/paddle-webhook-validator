@@ -13,10 +13,10 @@ describe('SignatureVerifier', () => {
         let verify
 
         if (index === 1) {
-            verify = require('../../../lib/classic/services/verify-signature')({ publicKeyFilePath })
+            verify = require('../../../../lib/classic/services/verify-signature')({ publicKeyFilePath })
         } else {
             const publicKeyText = fs.readFileSync(publicKeyFilePath)
-            verify = require('../../../lib/classic/services/verify-signature')({ publicKeyText })
+            verify = require('../../../../lib/classic/services/verify-signature')({ publicKeyText })
         }
 
         beforeEach(() => {
@@ -86,7 +86,7 @@ describe('SignatureVerifier', () => {
 
     it('throws if no public key path or text was given', () => {
         expect(() => {
-            require('../../../lib/classic/services/verify-signature')({  })
+            require('../../../../lib/classic/services/verify-signature')({  })
         }).to.throw(/^Please provide either/)
     })
 })

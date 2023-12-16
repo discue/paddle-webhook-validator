@@ -1,10 +1,10 @@
 'use strict'
 
-const validator = require('../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
+const validator = require('../../../../lib/classic/services/schema-validator')(['sandbox-my.paddle.com'], ['paddle.com'] )
 
 const { expect } = require('chai')
 
-describe('PaymentFailedValidator', () => {
+describe('SubscriptionUpdatedValidator', () => {
 
     let data
 
@@ -16,29 +16,32 @@ describe('PaymentFailedValidator', () => {
 
     beforeEach(() => {
         data = {
-            alert_id: '46382912',
-            alert_name: 'subscription_payment_failed',
-            amount: '808.38',
-            attempt_number: '1',
-            cancel_url: 'https://sandbox-checkout.paddle.com/subscription/cancel?user=5&subscription=2&hash=4f4b75c6a3e37ea827e97bbf95b83ac46d9d4fb8',
-            checkout_id: '7-128e3df04159120-b316bfe6b7',
+            alert_id: '84168067',
+            alert_name: 'subscription_updated',
+            cancel_url: 'https://sandbox-checkout.paddle.com/subscription/cancel?user=1&subscription=8&hash=fd4091c9cca96a1ef5b0a9e2248d9821bbeb7157',
+            checkout_id: '4-d18550981d343c0-7d513c5942',
             currency: 'EUR',
-            email: 'ritchie.vito@example.com',
-            event_time: '2021-08-08 11:49:59',
-            instalments: '9',
-            marketing_consent: '0',
-            next_retry_date: '2021-08-21',
-            order_id: '7',
+            email: 'xschmidt@example.com',
+            event_time: '2021-08-08 10:09:04',
+            linked_subscriptions: '4, 8, 2',
+            marketing_consent: '',
+            new_price: '3.01',
+            new_quantity: '1',
+            new_unit_price: '3.01',
+            next_bill_date: '2021-09-01',
+            old_next_bill_date: '2021-03-31',
+            old_price: '3.01',
+            old_quantity: '1',
+            old_status: 'active',
+            old_subscription_plan_id: '1',
+            old_unit_price: '3.01',
             passthrough: 'Example String',
-            quantity: '58',
             status: 'active',
-            subscription_id: '1',
-            subscription_payment_id: '4',
-            subscription_plan_id: '6',
-            unit_price: '3.15',
-            update_url: 'https://sandbox-checkout.paddle.com/subscription/update?user=5&subscription=5&hash=de02f4fe97e1ea310310215e7991614b438ed755',
-            user_id: '9',
-            p_signature: 'R28+OKAteLAZ9cySdcLrPFlgpuMOLpJaXyJedOch4sMDIDXfYqgdhhSjdeINCfHZF/wOTp1WySIHsQOJYKpSwoehfLT080S77o0shA8FFzqiRMfUHcXcm3l7cbzEjpuUOxvjIUn6JZYO5YMERIihfUpzIZu8TB6voLKcxL+xCNtvqPI8jOJxK8QBfSzNG5cNr+LKn5IMVXMXBPNrW00i7JdHdEOTJoQJQx5jzwftlFHNDZ6AiTxAwJjSx3TOt1n2XkRTcDnBhP5EFxIWlyWTZp7Vh3Ry/35ijoEfycbJWfk1MfORlM1hat6dszKws1PRwO2kiVeJgscNKfS+9i9B6vKloVLF2wK/FVWolCnSU45ZD+CBzsy4l4I1RfsTj36vDzdH+jtFO9chOLY24P9y1igma621IX8mAi9BoDkkt+OWC6wJlet6nQIQMy9sb4oOWH2hRyx8t5i7gWKNUELkClAjDbB8UL1mMntEN9926D7il8/CEmzv3d+HfKiO1jdHKAn4TVbrrgDcvEyDodyQ74RKIvixZMHn+A5VXwOn6jqRExZ1huJt2ew48KontPSajzc1iWR+T0oNf5pANMqMSeT30gM7ui8VELfXkwAcNBJAQMjZ7aGdgHl9+H3Se9Zz2jnQonn2bHn6wSMzqa2RZDhgyyFnab1WdMqAi4f16iM='
+            subscription_id: '2',
+            subscription_plan_id: '8',
+            update_url: 'https://sandbox-checkout.paddle.com/subscription/update?user=1&subscription=5&hash=2aa650ed554eb656e2dbe5b6c55661f574908bf1',
+            user_id: '5',
+            p_signature: 'rLKuiHrzJV/RnmdiMPoS5feXl+WU2IuHWhWaC/yMbI7exezBy/9hp1FYN5/xBVBW1jojv8n6Wg6PcigGvZz7IH8wPUt7JFtvcNF1E5ap7TJS3ycYhkWLMTGBlm3x/Bld2bLRc+u8ZVUdK8mJoKeUGSWQvcW+1I3HYMgL3zqyaCB36aXyP/sT/u/3EYrdE8Yu5c6nTDrexJPHsTKKnnwRo4Gu6lwoLUxW1lSiHI38JbKMhY444OzsrjWioh98K4AIbjFDgjO/vnXIF6gn60dpd/oDvQjoXZly69NduhOacBIoqGTlz0dOK7jctgw6x6vjGJnWUKWYROWa3OPdiawe9iROftOORvlR6TssikKSN2D7IdEXthcXu3ved1dCrKgQC6ImGcXaG5wkgQbXQ54yZfusF2HNuV82k0C7EhaLeKeKURiVltwHMyaAMmnix5m9qWUjKeoEWu5fk0LosXomw+eV/Y6GKYaS2E+TxPh/HIU4tjKP3rZDUVruVIPLd3TtCvWRGq5ZVLF0lDVEXaYWnKwrxpAVeU974d2PMK173HqsG+L6N0iIx/a9skHx3So/tovpKmUGcE0aVba3YjJW+cvX3r2xD5yRzPvZO/5qMWxrznCmfJyppIrpfB9ZWgvt6ZdbH84Xo08QHuoV90qjaLMSnmPEkk7Y8xpN4g1al8U='
         }
     })
 
@@ -72,12 +75,6 @@ describe('PaymentFailedValidator', () => {
         }, false)
     })
 
-    it('returns false if amount does not match pattern', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { amount: '1.234' })
-        }, false)
-    })
-
     it('returns true if cancel_url uses https and host ends with paddle.com', () => {
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { cancel_url: 'https://checkout.paddle.com' })
@@ -108,6 +105,7 @@ describe('PaymentFailedValidator', () => {
         }, false)
     })
 
+
     it('returns false if checkout_id is longer than 200 characters', () => {
         let s = ''
         for (let i = 0, n = 201; i <= n; i++) {
@@ -116,12 +114,6 @@ describe('PaymentFailedValidator', () => {
 
         UPDATE_AND_EXPECT((data) => {
             return Object.assign(data, { checkout_id: s })
-        }, false)
-    })
-
-    it('returns false if currency contains not only letters', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { currency: 'a9' })
         }, false)
     })
 
@@ -153,15 +145,81 @@ describe('PaymentFailedValidator', () => {
         })
     })
 
-    it('returns false if next_retry_date does not match pattern', () => {
+    it('returns false if new_price is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { next_retry_date: 'a9' })
+            return Object.assign(data, { new_price: 'a9' })
         }, false)
     })
 
-    it('returns true if retry_date contains a time', () => {
+    it('returns false if new_price is not expected format', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { next_retry_date: '2022-01-02 02-03-04' })
+            return Object.assign(data, { new_price: '222' })
+        }, false)
+    })
+
+    it('returns false if new_quantity is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { new_quantity: 'a9' })
+        }, false)
+    })
+
+    it('returns false if new_unit_price is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { new_unit_price: 'a9' })
+        }, false)
+    })
+
+    it('returns false if new_unit_price is not expected format', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { new_unit_price: '222' })
+        }, false)
+    })
+
+    it('returns false if next_bill_date does not match pattern', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_bill_date: 'a9' })
+        }, false)
+    })
+
+    it('returns true if next_bill_date contains a time', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { next_bill_date: '2022-02-03 02-03-04' })
+        }, false)
+    })
+
+    it('returns false if old_price is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { old_price: 'a9' })
+        }, false)
+    })
+
+    it('returns false if old_price is not expected format', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { old_price: '222' })
+        }, false)
+    })
+
+    it('returns false if old_quantity is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { old_quantity: 'a9' })
+        }, false)
+    })
+
+    it('returns false if old_unit_price is not only numbers', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { old_unit_price: 'a9' })
+        }, false)
+    })
+
+    it('returns false if old_unit_price is not expected format', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { old_unit_price: '222' })
+        }, false)
+    })
+
+    it('returns false if currency contains not only letters', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { currency: 'a9' })
         }, false)
     })
 
@@ -182,11 +240,6 @@ describe('PaymentFailedValidator', () => {
         }, false)
     })
 
-    it('returns false if quantity is not only numbers', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { quantity: 'a9' })
-        }, false)
-    })
 
     it('returns false if status it none of allowed values', () => {
         UPDATE_AND_EXPECT((data) => {
@@ -222,15 +275,9 @@ describe('PaymentFailedValidator', () => {
         }, false)
     })
 
-    it('returns false if unit_price is not only numbers', () => {
+    it('returns false if user_id is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { unit_price: 'a9' })
-        }, false)
-    })
-
-    it('returns false if unit_price is not expected format', () => {
-        UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { unit_price: '222' })
+            return Object.assign(data, { user_id: 'a9' })
         }, false)
     })
 
@@ -258,34 +305,68 @@ describe('PaymentFailedValidator', () => {
         }, true)
     })
 
-    it('returns false if subscription_payment_id is not only numbers', () => {
+
+    it('returns false if old_next_bill_date does not match pattern', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { subscription_payment_id: 'a9' })
+            return Object.assign(data, { old_next_bill_date: 'a9' })
         }, false)
     })
 
-    it('returns false if instalments not a number', () => {
+    it('returns false if old_next_bill_date contains a time', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { instalments: 'a9' })
+            return Object.assign(data, { old_next_bill_date: '2022-02-03 02-03-04' })
         }, false)
     })
 
-    it('returns false if order_id does not match pattern', () => {
+    it('returns false if old_status it none of allowed values', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { order_id: '1.234' })
+            return Object.assign(data, { old_status: 'a9' })
         }, false)
     })
 
-    it('returns false if user_id is not only numbers', () => {
+    validStatus.forEach((status) => {
+        it('returns true if old_status has value ' + status, () => {
+            UPDATE_AND_EXPECT((data) => {
+                return Object.assign(data, { old_status: status })
+            }, true)
+        })
+    })
+
+    it('returns false if old_subscription_plan_id is not only numbers', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { user_id: 'a9' })
+            return Object.assign(data, { old_subscription_plan_id: 'a9' })
         }, false)
     })
 
-    it('returns false if attempt_number is not only numbers', () => {
+    it('returns false if paused_at does not match pattern', () => {
         UPDATE_AND_EXPECT((data) => {
-            return Object.assign(data, { attempt_number: 'a9' })
+            return Object.assign(data, { paused_at: '12334' })
         }, false)
+    })
+
+    it('returns false if paused_from does not match pattern', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { paused_at: '12334' })
+        }, false)
+    })
+
+    it('returns false if paused_from is not allowed value', () => {
+        UPDATE_AND_EXPECT((data) => {
+            return Object.assign(data, { paused_reason: '12334' })
+        }, false)
+    })
+
+    const pausedReasons = [
+        "delinquent",
+        "voluntary"
+    ]
+
+    pausedReasons.forEach((reason) => {
+        it('returns true if paused_reason has value ' + reason, () => {
+            UPDATE_AND_EXPECT((data) => {
+                return Object.assign(data, { paused_reason: reason })
+            }, true)
+        })
     })
 
     it('returns false if p_signature is longer than 2000 characters', () => {
