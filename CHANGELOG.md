@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/discue/paddle-webhook-validator/compare/v1.5.0...v1.6.0) (2023-12-17)
+
+
+### Features
+
+* implement validation for new paddle billing ([7beda99](https://github.com/discue/paddle-webhook-validator/commit/7beda99c843f5eea8f59f2749a54da628fc0a6ae))
+
+
+### Chores
+
+* create types during release ([8ccf5ff](https://github.com/discue/paddle-webhook-validator/commit/8ccf5ff824903a9c7e0d23022ec059c3352f3fab))
+* **deps-dev:** bump chai from 4.3.7 to 4.3.8 ([94f84db](https://github.com/discue/paddle-webhook-validator/commit/94f84db7a8f412c74acbd66dd0d16e49dc270a0a))
+* **deps-dev:** bump chai from 4.3.8 to 4.3.10 ([898c188](https://github.com/discue/paddle-webhook-validator/commit/898c18861f9d7004c36d327b173f44bdf3f5c324))
+* **deps-dev:** bump eslint from 8.28.0 to 8.31.0 ([241b0fa](https://github.com/discue/paddle-webhook-validator/commit/241b0fa9918930c4a5e0801c467f3e1a690a777d))
+* **deps-dev:** bump eslint from 8.31.0 to 8.33.0 ([d43fa69](https://github.com/discue/paddle-webhook-validator/commit/d43fa69ce032dc945e7dea82b8bb83b2a47dbadb))
+* **deps-dev:** bump eslint from 8.33.0 to 8.35.0 ([cc64aaa](https://github.com/discue/paddle-webhook-validator/commit/cc64aaa167fcbb973cb43722c79a20661d63cf16))
+* **deps-dev:** bump eslint from 8.35.0 to 8.37.0 ([c39e211](https://github.com/discue/paddle-webhook-validator/commit/c39e211c60a792960234bff9ceea16e1dc0a5526))
+* **deps-dev:** bump eslint from 8.37.0 to 8.39.0 ([dd39853](https://github.com/discue/paddle-webhook-validator/commit/dd398532d6a024ebaf7d36a3df60620903c1806c))
+* **deps-dev:** bump eslint from 8.39.0 to 8.41.0 ([8110a75](https://github.com/discue/paddle-webhook-validator/commit/8110a7548219c9f11e823d32ddcffc850b90594f))
+* **deps-dev:** bump eslint from 8.41.0 to 8.44.0 ([45a13d5](https://github.com/discue/paddle-webhook-validator/commit/45a13d5e7f4f2b7328668d3daabd37980be3b8b6))
+* **deps-dev:** bump eslint from 8.44.0 to 8.46.0 ([ce3d6bb](https://github.com/discue/paddle-webhook-validator/commit/ce3d6bbbf09d5ebe6c1b3dde1060ec074de45e5d))
+* **deps-dev:** bump eslint from 8.46.0 to 8.48.0 ([2e19649](https://github.com/discue/paddle-webhook-validator/commit/2e19649d9d4fd109f90a0d93c01dfcce81e6ec06))
+* **deps-dev:** bump eslint from 8.48.0 to 8.50.0 ([b895ff6](https://github.com/discue/paddle-webhook-validator/commit/b895ff6a9a1968dddf0f57ed053041fa251318ed))
+* **deps-dev:** bump eslint from 8.50.0 to 8.52.0 ([a46318a](https://github.com/discue/paddle-webhook-validator/commit/a46318ae0326f7325b206cd4ea6375221713a9cb))
+* **deps-dev:** bump eslint from 8.52.0 to 8.54.0 ([3f38021](https://github.com/discue/paddle-webhook-validator/commit/3f38021d81c35887b99f840183ebcfeed024f468))
+* **deps-dev:** bump mocha from 10.1.0 to 10.2.0 ([4fa5798](https://github.com/discue/paddle-webhook-validator/commit/4fa57988be32c20fe012c816c17e38ad3325e4f2))
+* **deps-dev:** bump nodemon from 2.0.20 to 2.0.22 ([5e6e1b9](https://github.com/discue/paddle-webhook-validator/commit/5e6e1b96a357a7f52a7b2e1fc5f0b451a04dd7c3))
+* **deps-dev:** bump nodemon from 2.0.22 to 3.0.1 ([969df9c](https://github.com/discue/paddle-webhook-validator/commit/969df9c2ee5362f37c60eea192d1ad88ac1121f2))
+* **deps:** bump actions/checkout from 3 to 4 ([05dbe00](https://github.com/discue/paddle-webhook-validator/commit/05dbe00d637a6a5e2aae5290afed009ca2fd5557))
+* **deps:** bump actions/setup-node from 3 to 4 ([00461ea](https://github.com/discue/paddle-webhook-validator/commit/00461eadb53a2fe0649f28a75be30704fb10cb8b))
+* **deps:** bump actions/stale from 6 to 7 ([5adde4b](https://github.com/discue/paddle-webhook-validator/commit/5adde4b2288a1071adbc2abbd1bcbd5f6b154301))
+* **deps:** bump actions/stale from 7 to 8 ([efd5fd4](https://github.com/discue/paddle-webhook-validator/commit/efd5fd448c9c7211e896e8c67a8da80a71e9ed9e))
+* **deps:** bump php-serialize from 4.0.2 to 4.1.0 ([c9e701a](https://github.com/discue/paddle-webhook-validator/commit/c9e701aa3f2ee736db954bf2addaf36be8f36c40))
+* **deps:** bump php-serialize from 4.1.0 to 4.1.1 ([bbff637](https://github.com/discue/paddle-webhook-validator/commit/bbff6375c18ebb044a7a79fc03a22e33b2edb889))
+* **deps:** fix vulnerabilities ([63727a5](https://github.com/discue/paddle-webhook-validator/commit/63727a52463074630e8c358a0740e6886294ed36))
+* **deps:** install typescript compiler ([f8456db](https://github.com/discue/paddle-webhook-validator/commit/f8456dbc11b98dcadf3686dfa305ff093bbf0bdc))
+* document billing APIs ([0ebff26](https://github.com/discue/paddle-webhook-validator/commit/0ebff265af45c03f904643c2a0596aa8c98df54b))
+* ignore secret files ([492ed9d](https://github.com/discue/paddle-webhook-validator/commit/492ed9d2bdb96dfee5f6e97698fe8eb86046fd4e))
+* move also tests to classic folder ([0060221](https://github.com/discue/paddle-webhook-validator/commit/0060221d8c91dc128b5e9f046d16783e93b74d2f))
+* move classic impl to classic folder ([ab7fd51](https://github.com/discue/paddle-webhook-validator/commit/ab7fd51996d51d71a862c7292671576e151294e7))
+* remove eslint linebreak rule ([d41ce8e](https://github.com/discue/paddle-webhook-validator/commit/d41ce8e5cd8377f19cc1389a51563d509ed39cf0))
+* update package description ([5e354ae](https://github.com/discue/paddle-webhook-validator/commit/5e354ae35b98e5431bc543e16f839f33a0fbd48e))
+
 ## [1.5.0](https://github.com/discue/paddle-webhook-validator/compare/v1.4.0...v1.5.0) (2022-12-11)
 
 
