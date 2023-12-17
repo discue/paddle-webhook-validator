@@ -20,8 +20,9 @@
 </div>
 
 # paddle-webhook-validator
-
 NodeJS middleware for validation of Paddle.com [Webhooks](https://developer.paddle.com/webhook-reference/ZG9jOjI1MzUzOTg2-verifying-webhooks).
+
+This module supports validating hook so [Paddle Billing](https://developer.paddle.com/webhooks/overview) and the legacy [Paddle Classic](https://developer.paddle.com/classic/webhook-reference/bd1986c817a40-webhook-reference).
 
 ## Installation
 ```bash
@@ -33,6 +34,25 @@ The validator can be used like any old [ExpressJS](https://expressjs.com/) [midd
 The example below show usage of the validator in conjunction with [ExpressJS Router](http://expressjs.com/en/5x/api.html#router) which is optional.
 
 The library as a whole can be used with CommonJS and ES6.
+### Paddle Billing
+```js
+import factory from '@discue/paddle-webhook-validator/billing'
+import express from 'express'
+
+const router = express.Router()
+const middleware = factory({ signatureValidation: { secretKey: process.env.PADDLE_HOOK_SECRET_KEY } })
+
+router.use(middleware)
+
+router.use((req, res) => {
+    // handle actual payload here
+})
+
+export default router
+```
+
+### Paddle Classic (Legacy)
+
 
 ```js
 import paddleWebhookValidator from '@discue/paddle-webhook-validator'
