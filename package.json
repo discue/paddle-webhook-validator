@@ -4,12 +4,17 @@
   "license": "MIT",
   "version": "1.5.0",
   "description": "Middleware for validation of paddle payment hooks",
-  "main": "lib/index",
+  "main": "lib/classic/index",
+  "exports": {
+    ".": "./lib/classic/index.js",
+    "./classic": "./lib/classic/index.js",
+    "./billing": "./lib/billing/index.js"
+  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "test": "mocha test/spec/**/*.spec.js --check-leaks  --timeout 50000",
+    "test": "mocha --recursive --check-leaks  --timeout 50000",
     "lint": "eslint -c .eslintrc.json lib",
     "release": "npm run test && standard-version && git push --follow-tags origin && npm publish",
     "release-minor": "npm run test && standard-version --release-as minor && git push --follow-tags origin && npm publish",
