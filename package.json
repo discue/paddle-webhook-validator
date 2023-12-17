@@ -16,8 +16,14 @@
   "scripts": {
     "test": "mocha --recursive --check-leaks  --timeout 50000",
     "lint": "eslint -c .eslintrc.json lib",
-    "release": "npm run test && standard-version && git push --follow-tags origin && npm publish",
-    "release-minor": "npm run test && standard-version --release-as minor && git push --follow-tags origin && npm publish",
+    "push-incl-tags": "git push --follow-tags origin main",
+    "publish-npm": "npm publish --access public",
+    "remove-types": "find lib -name \"*.d.ts\" -type f -delete",
+    "create-billing-types": "npx tsc lib/billing/index.js --declaration --emitDeclarationOnly --allowJs",
+    "create-classic-types": "npx tsc lib/classic/index.js --declaration --emitDeclarationOnly --allowJs",
+    "release-generic": "npm run push-incl-tags && npm run create-billing-types && npm run publish-npm && npm run remove-types",
+    "release": "standard-version && npm run release-generic",
+    "release-minor": "standard-version --release-as minor && npm run release-generic",
     "paddle-webhook-tunnel": "lt --port 3456 --subdomain ii533vj7h9qipggbkbze"
   },
   "repository": {
