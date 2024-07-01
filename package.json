@@ -48,7 +48,7 @@
     "eslint": "^9.4.0",
     "express": "^4.19.2",
     "mocha": "^10.4.0",
-    "nodemon": "^3.1.2",
+    "nodemon": "^3.1.4",
     "standard-version": "^9.5.0",
     "typescript": "^5.4.5"
   },
