@@ -50,7 +50,7 @@
     "mocha": "^10.7.3",
     "nodemon": "^3.1.7",
     "standard-version": "^9.5.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "php-serialize": "^5.0.1"
