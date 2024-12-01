@@ -6,6 +6,8 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    ignore:
+      - dependency-name: chai
     versioning-strategy: increase
 
   - package-ecosystem: github-actions
