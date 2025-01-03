@@ -47,7 +47,7 @@
     "chai": "^4.3.10",
     "eslint": "^9.16.0",
     "express": "^4.21.1",
-    "mocha": "^10.8.2",
+    "mocha": "^11.0.1",
     "nodemon": "^3.1.9",
     "standard-version": "^9.5.0",
     "typescript": "^5.7.2"
