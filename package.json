@@ -53,6 +53,6 @@
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "php-serialize": "^5.0.1"
+    "php-serialize": "^5.1.0"
   }
 }
