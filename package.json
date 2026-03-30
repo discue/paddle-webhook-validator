@@ -44,13 +44,15 @@
     "express"
   ],
   "devDependencies": {
-    "chai": "^4.3.10",
-    "eslint": "^9.39.2",
+    "@eslint/js": "^10.0.1",
+    "chai": "^6.2.2",
+    "eslint": "^10.1.0",
     "express": "^5.2.1",
+    "globals": "^17.4.0",
     "mocha": "^11.7.5",
     "nodemon": "^3.1.14",
     "standard-version": "^9.5.0",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "dependencies": {
     "php-serialize": "^5.1.3"
